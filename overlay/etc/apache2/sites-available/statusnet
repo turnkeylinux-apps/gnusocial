@@ -1,0 +1,32 @@
+NameVirtualHost *:80
+NameVirtualHost *:443
+
+<VirtualHost *:80>
+    UseCanonicalName Off
+    ServerAdmin  webmaster@localhost
+    DocumentRoot /var/www/statusnet/
+</VirtualHost>
+
+<VirtualHost *:443>
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/cert.pem
+    ServerAdmin  webmaster@localhost
+    DocumentRoot /var/www/statusnet/
+</VirtualHost>
+
+<Directory /var/www/statusnet/>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule (.*) index.php?p=$1 [L,QSA]
+
+    Options +FollowSymLinks
+    AllowOverride All
+    order allow,deny
+    allow from all
+</Directory>
+
+<FilesMatch "\.(ini)">
+  Order allow,deny
+</FilesMatch>
+

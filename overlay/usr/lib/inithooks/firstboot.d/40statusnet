@@ -1,0 +1,8 @@
+#!/bin/bash -e
+# set statusnet domain, administrator password and email
+
+. /etc/default/inithooks
+
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+$INITHOOKS_PATH/bin/statusnet.py --domain="$APP_DOMAIN" --pass="$APP_PASS" --email="$APP_EMAIL"
+
