@@ -40,7 +40,7 @@ a2enmod rewrite
 URL="http://127.0.0.1/install.php"
 EMAIL=$(echo $ADMIN_MAIL | sed s/@/%40/)
 
-curl --data "sitename=TurnKey+StatusNet&fancy=enable&host=localhost&dbtype=mysql&database=$DB_NAME&dbusername=$DB_USER&dbpassword=$DB_PASS&admin_nickname=$ADMIN_USER&admin_password=$ADMIN_PASS&admin_password2=$ADMIN_PASS&admin_email=$EMAIL&submit=Submit" $URL
+curl --data "sitename=TurnKey+StatusNet&fancy=enable&host=localhost&dbtype=mysql&database=$DB_NAME&dbusername=$DB_USER&dbpassword=$DB_PASS&admin_nickname=$ADMIN_USER&admin_password=$ADMIN_PASS&admin_password2=$ADMIN_PASS&admin_email=$EMAIL&admin_updates=false&site_profile=public&submit=Submit" $URL
 
 # delete confirmation mail to $ADMIN_MAIL
 rm -f /var/spool/postfix/maildrop/*
