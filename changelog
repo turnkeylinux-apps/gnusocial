@@ -4,7 +4,7 @@ turnkey-statusnet-12.0 (1) turnkey; urgency=low
 
   * Major component versions
 
-    statusnet       1.0.1 (upstream archive)
+    statusnet       1.1.0 (upstream archive)
     apache2         2.2.16-6+squeeze7
     mysql-server    5.1.63-0+squeeze1
     phpmyadmin      4:3.3.7-7
