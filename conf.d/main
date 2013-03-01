@@ -11,9 +11,9 @@ DB_PASS=$(mcookie)
 WEBROOT=/var/www/statusnet
 
 # unpack tarball to webroot and set permissions
-tar -zxf /usr/local/src/statusnet*.tar.gz -C /var/www/
+tar -zxf /usr/local/src/statusnet-*.tar.gz -C /var/www/
 mv /var/www/statusnet-* $WEBROOT
-rm -f /usr/local/src/statusnet*
+rm -f /usr/local/src/statusnet-*.tar.gz
 
 chown -R www-data:www-data $WEBROOT
 
