@@ -1,5 +1,5 @@
 #!/usr/bin/python
-"""Set StatusNet domain, administrator password and email
+"""Set GNU social domain, administrator password and email
 
 Option:
     --pass=     unless provided, will ask interactively
@@ -49,7 +49,7 @@ def main():
     if not password:
         d = Dialog('TurnKey Linux - First boot configuration')
         password = d.get_password(
-            "StatusNet Password",
+            "GNU social Password",
             "Enter new password for the StatusNet 'administrator' account.")
 
     if not email:
@@ -57,8 +57,8 @@ def main():
             d = Dialog('TurnKey Linux - First boot configuration')
 
         email = d.get_email(
-            "StatusNet Email",
-            "Please enter email address for the StatusNet 'administrator' account.",
+            "GNU social Email",
+            "Please enter email address for the GNU social 'administrator' account.",
             "admin@example.com")
 
     if not domain:
@@ -66,8 +66,8 @@ def main():
             d = Dialog('TurnKey Linux - First boot configuration')
 
         domain = d.get_input(
-            "StatusNet Domain",
-            "Enter the domain to serve StatusNet",
+            "GNU social Domain",
+            "Enter the domain to serve GNU social",
             DEFAULT_DOMAIN)
 
     if domain == "DEFAULT":
@@ -76,12 +76,12 @@ def main():
     hashpass = hashlib.md5(password + '1').hexdigest()   # userid
 
     m = MySQL()
-    m.execute('UPDATE statusnet.user SET email=\"%s\" WHERE nickname=\"administrator\";' % email)
-    m.execute('UPDATE statusnet.user SET password=\"%s\" WHERE nickname=\"administrator\";' % hashpass)
-    m.execute('UPDATE statusnet.user SET uri=\"http://%s/user/1\" WHERE nickname=\"administrator\";' % domain)
+    m.execute('UPDATE gnusocial.user SET email=\"%s\" WHERE nickname=\"administrator\";' % email)
+    m.execute('UPDATE gnusocial.user SET password=\"%s\" WHERE nickname=\"administrator\";' % hashpass)
+    m.execute('UPDATE gnusocial.user SET uri=\"http://%s/user/1\" WHERE nickname=\"administrator\";' % domain)
 
     new = []
-    config = "/var/www/statusnet/config.php"
+    config = "/var/www/gnusocial/config.php"
     for s in file(config).readlines():
         s = s.rstrip()
         s = re.sub("\['server'\](.*);", "['server'] = '%s';" % domain, s)
