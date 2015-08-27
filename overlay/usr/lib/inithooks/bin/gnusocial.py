@@ -12,6 +12,8 @@ Option:
 import re
 import sys
 import getopt
+import inithooks_cache
+
 import hashlib
 
 from dialog_wrapper import Dialog
@@ -61,6 +63,8 @@ def main():
             "Please enter email address for the GNU social 'administrator' account.",
             "admin@example.com")
 
+    inithooks_cache.write('APP_EMAIL', email)
+
     if not domain:
         if 'd' not in locals():
             d = Dialog('TurnKey Linux - First boot configuration')
@@ -72,6 +76,8 @@ def main():
 
     if domain == "DEFAULT":
         domain = DEFAULT_DOMAIN
+
+    inithooks_cache.write('APP_DOMAIN', domain)
     
     hashpass = hashlib.md5(password + '1').hexdigest()   # userid
 
