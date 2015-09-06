@@ -52,7 +52,7 @@ def main():
         d = Dialog('TurnKey Linux - First boot configuration')
         password = d.get_password(
             "GNU social Password",
-            "Enter new password for the StatusNet 'administrator' account.")
+            "Enter new password for the GNU Social 'administrator' account.")
 
     if not email:
         if 'd' not in locals():
@@ -60,7 +60,7 @@ def main():
 
         email = d.get_email(
             "GNU social Email",
-            "Please enter email address for the GNU social 'administrator' account.",
+            "Please enter email address for the GNU Social 'administrator' account.",
             "admin@example.com")
 
     inithooks_cache.write('APP_EMAIL', email)
@@ -99,4 +99,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+`
