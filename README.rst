@@ -4,7 +4,7 @@ GNU social - Open, distributed microblogging
 `GNU social`_ (formerly StatusNet) provides microblogging functionality
 similar to Twitter. It uses an open, distributed design that allows
 enterprises and individuals to install and control their own services
-and data while integrating with other StatusNet instances, SMS, Twitter,
+and data while integrating with other GNU Social instances, SMS, Twitter,
 Facebook and XMPP IM clients.
 
 This appliance includes all the standard features in `TurnKey Core`_,
