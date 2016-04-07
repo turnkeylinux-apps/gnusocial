@@ -44,6 +44,8 @@ curl --data "sitename=TurnKey+GNU+social&ssl=always&host=localhost&dbtype=mysql&
 # delete confirmation mail to $ADMIN_MAIL
 rm -f /var/spool/postfix/maildrop/*
 
+sed -i '/127.0.0.1/d' $WEBROOT/config.php
+
 # stop services
 /etc/init.d/apache2 stop
 /etc/init.d/mysql stop
