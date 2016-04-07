@@ -13,7 +13,7 @@ WEBROOT=/var/www/gnusocial
 # unpack tarball to webroot and set permissions
 tar -zxf /usr/local/src/gnusocial.tar.gz -C /var/www/
 rm -f /usr/local/src/gnusocial.tar.gz
-mv /var/www/gnu-social.git /var/www/gnusocial
+mv /var/www/gnu-social-* /var/www/gnusocial
 
 # fix missing dirs
 mkdir -p /var/www/gnusocial/{avatar,background,file}
