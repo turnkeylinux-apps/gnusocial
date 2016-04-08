@@ -13,7 +13,7 @@ WEBROOT=/var/www/gnusocial
 # unpack tarball to webroot and set permissions
 tar -zxf /usr/local/src/gnusocial.tar.gz -C /var/www/
 rm -f /usr/local/src/gnusocial.tar.gz
-mv /var/www/gnu-social.git /var/www/gnusocial
+mv /var/www/gnu-social-* /var/www/gnusocial
 
 # fix missing dirs
 mkdir -p /var/www/gnusocial/{avatar,background,file}
@@ -43,6 +43,8 @@ curl --data "sitename=TurnKey+GNU+social&ssl=always&host=localhost&dbtype=mysql&
 
 # delete confirmation mail to $ADMIN_MAIL
 rm -f /var/spool/postfix/maildrop/*
+
+sed -i '/127.0.0.1/d' $WEBROOT/config.php
 
 # stop services
 /etc/init.d/apache2 stop
