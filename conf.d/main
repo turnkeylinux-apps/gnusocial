@@ -35,7 +35,7 @@ a2ensite gnusocial
 a2enmod rewrite
 
 # complete the installation
-/etc/init.d/apache2 start
+APACHE_STARTED_BY_SYSTEMD="y" /usr/sbin/apachectl start
 URL="http://127.0.0.1/install.php"
 EMAIL=$(echo $ADMIN_MAIL | sed s/@/%40/)
 
@@ -47,6 +47,6 @@ rm -f /var/spool/postfix/maildrop/*
 sed -i '/127.0.0.1/d' $WEBROOT/config.php
 
 # stop services
-/etc/init.d/apache2 stop
+/usr/sbin/apachectl stop
 /etc/init.d/mysql stop
 
