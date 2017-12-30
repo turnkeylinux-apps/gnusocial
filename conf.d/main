@@ -36,6 +36,8 @@ a2dissite 000-default
 a2ensite gnusocial
 a2enmod rewrite
 
+service apache2 restart
+
 # complete the installation
 URL="http://127.0.0.1/install.php"
 EMAIL=$(echo $ADMIN_MAIL | sed s/@/%40/)
