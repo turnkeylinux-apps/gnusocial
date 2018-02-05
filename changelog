@@ -4,6 +4,8 @@ turnkey-gnusocial-15.0 (1) turnkey; urgency=low
 
   * Replace MySQL with MariaDB
 
+  * Domain no longer set by inithook (not required) [addresses #958].
+
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances. Here we only describe changes specdific to this appliance.
 
