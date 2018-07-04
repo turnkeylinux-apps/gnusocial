@@ -2,7 +2,17 @@ turnkey-gnusocial-15.0 (1) turnkey; urgency=low
 
   * Install Adminer directly from stretch/main repo
 
-  * Replace MySQL with MariaDB
+  * Provide "adminer" root-like user for Adminer MySQL access
+
+  * Replace MySQL with MariaDB (drop-in MySQL replacement)
+
+  * Updated version of mysqltuner script
+
+  * Includes PHP7.0 (installed from Debian repos)
+
+  * Updated PHP default settings
+
+  * Remove phpsh (no longer maintained)
 
   * Domain no longer set by inithook (not required) [addresses #958].
 
