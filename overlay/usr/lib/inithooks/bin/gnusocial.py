@@ -64,7 +64,6 @@ def main():
     m = MySQL()
     m.execute('UPDATE gnusocial.user SET email=\"%s\" WHERE nickname=\"administrator\";' % email)
     m.execute('UPDATE gnusocial.user SET password=\"%s\" WHERE nickname=\"administrator\";' % hashpass)
-    m.execute('UPDATE gnusocial.user SET uri=\"http://%s/user/1\" WHERE nickname=\"administrator\";' % domain)
 
 if __name__ == "__main__":
     main()
