@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Set GNU social domain, administrator password and email
 
 Option:
@@ -12,16 +12,16 @@ import sys
 import getopt
 import inithooks_cache
 
-import hashlib
+import crypt
 
 from dialog_wrapper import Dialog
 from mysqlconf import MySQL
 
 def usage(s=None):
     if s:
-        print >> sys.stderr, "Error:", s
-    print >> sys.stderr, "Syntax: %s [options]" % sys.argv[0]
-    print >> sys.stderr, __doc__
+        print("Error:", s, file=sys.stderr)
+    print("Syntax: %s [options]" % sys.argv[0], file=sys.stderr)
+    print(__doc__, file=sys.stderr)
     sys.exit(1)
 
 
@@ -29,7 +29,7 @@ def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
                                        ['help', 'pass=', 'email='])
-    except getopt.GetoptError, e:
+    except getopt.GetoptError as e:
         usage(e)
 
     email = ""
@@ -59,11 +59,11 @@ def main():
 
     inithooks_cache.write('APP_EMAIL', email)
 
-    hashpass = hashlib.md5(password + '1').hexdigest()   # userid
+    hashpass = crypt.crypt(password, crypt.METHOD_SHA512)
 
     m = MySQL()
-    m.execute('UPDATE gnusocial.user SET email=\"%s\" WHERE nickname=\"administrator\";' % email)
-    m.execute('UPDATE gnusocial.user SET password=\"%s\" WHERE nickname=\"administrator\";' % hashpass)
+    m.execute('UPDATE gnusocial.user SET email=%s WHERE nickname=\"administrator\";', (email,))
+    m.execute('UPDATE gnusocial.user SET password=%s WHERE nickname=\"administrator\";', (hashpass,))
 
 if __name__ == "__main__":
     main()
