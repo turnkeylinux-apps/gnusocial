@@ -14,7 +14,7 @@ import inithooks_cache
 
 import crypt
 
-from dialog_wrapper import Dialog
+from libininthooks.dialog_wrapper import Dialog
 from mysqlconf import MySQL
 
 def usage(s=None):
