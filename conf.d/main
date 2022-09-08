@@ -16,7 +16,7 @@ rm -f /usr/local/src/gnusocial.tar.gz
 mv /var/www/gnu-social /var/www/gnusocial
 
 # fix missing dirs
-mkdir -p /var/www/gnusocial/{avatar,background,file}
+mkdir -p /var/www/gnusocial/file/{avatar,background,file}
 
 chown -R www-data:www-data $WEBROOT
 
@@ -25,8 +25,9 @@ MYSQL_BATCH="mysql --user=root --password=$MYSQL_PASS --batch"
 MYSQL_ADMIN="mysqladmin --user=root --password=$MYSQL_PASS"
 
 # start services
-service apache2 start
 service mysql start
+service apache2 start
+apt-get -y install php-bcmath
 
 $MYSQL_ADMIN create $DB_NAME
 $MYSQL_BATCH --execute "grant all privileges on $DB_NAME.* to $DB_USER@localhost identified by '$DB_PASS'; flush privileges;"
@@ -47,7 +48,7 @@ curl --data "sitename=TurnKey+GNU+social&ssl=always&host=localhost&dbtype=mysql&
 # delete confirmation mail to $ADMIN_MAIL
 rm -f /var/spool/postfix/maildrop/*
 
-sed -i '/127.0.0.1/d' $WEBROOT/config.php
+sed -i '/127.0.0.1/d' $WEBROOT/classes/Config.php
 
 # stop services
 service apache2 stop
