@@ -1,4 +1,4 @@
 #!/bin/bash -ex
 
 [ "$FAB_HTTP_PROXY" ] && PROXY="--proxy $FAB_HTTP_PROXY"
-curl -L -f $PROXY https://git.gnu.io/gnu/gnu-social/repository/archive.tar.gz -o /usr/local/src/gnusocial.tar.gz
+curl -L -f $PROXY https://notabug.org/diogo/gnu-social/archive/master.tar.gz -o /usr/local/src/gnusocial.tar.gz
