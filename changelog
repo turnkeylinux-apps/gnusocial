@@ -9,6 +9,8 @@ turnkey-gnusocial-17.0 (1) turnkey; urgency=low
   * Removed code error in conf.d/main responsible for renaming directory /var/www/gnusocial.
 
   * Updated moved index.php file for curl command to complete apache install in gnusocial.conf file.
+  
+  * Update new directory locations needed for apache gnu install with curl command.
 
   * Installed php-bcmath package to complete updated apache gnu install thorugh curl command. 
 
