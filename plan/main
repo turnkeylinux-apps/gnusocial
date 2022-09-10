@@ -6,3 +6,4 @@ php-gd
 php-intl
 php-xml
 php-mbstring
+php-bcmath
