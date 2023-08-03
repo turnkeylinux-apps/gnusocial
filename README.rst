@@ -32,7 +32,7 @@ Credentials *(passwords set at first boot)*
 -  Adminer: username **adminer**
 
 
-.. _GNU social: https://gnu.io/social/
+.. _GNU social: https://gnusocial.rocks/
 .. _TurnKey Core: https://www.turnkeylinux.org/core
-.. _GNU social documentation: https://git.gnu.io/gnu/gnu-social/blob/master/UPGRADE
+.. _GNU social documentation: ~~https://git.gnu.io/gnu/gnu-social/blob/master/UPGRADE~~ *(find new location)*
 .. _Adminer: https://www.adminer.org/
